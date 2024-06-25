@@ -221,7 +221,7 @@ class notes : ComponentActivity() {
             NavigationBarItem(
                 selected = false,
                 onClick = {
-                    val intent = Intent(this@notes, MainActivity::class.java)
+                    val intent = Intent(this@notes, test::class.java)
                     startActivity(intent)
                 },
                 icon = {
