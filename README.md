@@ -1,8 +1,8 @@
 login credential
-username : lucky
+username : lucky,
 password : 12345
 
-if you dont have account, create one.
+if you dont have account, you can create one.
 
 import this image in drawable 
 ![sell](https://github.com/roberthouse38/Deliver.It/assets/120004417/426424a6-bb30-406c-8d20-d0f2fa73fa88)
