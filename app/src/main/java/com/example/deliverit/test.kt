@@ -146,13 +146,14 @@ class test : ComponentActivity() {
         NavigationBar(modifier = Modifier) {
             NavigationBarItem(
                 selected = true,
-                onClick = { /*TODO*/ },
+                onClick = { /* Already on Home page */ },
                 icon = {
                     Icon(
-                        painter = painterResource(id = com.example.deliverit.R.drawable.home),
+                        painter = painterResource(id = R.drawable.home),
                         contentDescription = null
                     )
-                }, label = { Text(text = "Home") }
+                },
+                label = { Text(text = "Home") }
             )
 
             NavigationBarItem(
@@ -165,10 +166,11 @@ class test : ComponentActivity() {
                 },
                 icon = {
                     Icon(
-                        painter = painterResource(id = com.example.deliverit.R.drawable.library),
+                        painter = painterResource(id = R.drawable.library),
                         contentDescription = null
                     )
-                }, label = { Text(text = "Stock") }
+                },
+                label = { Text(text = "Stock") }
             )
 
             NavigationBarItem(
@@ -182,7 +184,25 @@ class test : ComponentActivity() {
                         painter = painterResource(id = R.drawable.baseline_notes_24),
                         contentDescription = null
                     )
-                }, label = { Text(text = "Notes") }
+                },
+                label = { Text(text = "Notes") }
+            )
+
+            NavigationBarItem(
+                selected = false,
+                onClick = {
+                    val intent = Intent(this@test, ProfileAccountPage::class.java).apply {
+                        putExtra(ProfileAccountPage.EXTRA_USERNAME, username)
+                    }
+                    startActivity(intent)
+                },
+                icon = {
+                    Icon(
+                        painter = painterResource(id = R.drawable.account_circle),
+                        contentDescription = null
+                    )
+                },
+                label = { Text(text = "Profile") }
             )
         }
     }

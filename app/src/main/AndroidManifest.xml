@@ -31,6 +31,9 @@
             android:name=".signin"
             android:exported="false" />
         <activity
+            android:name=".ProfileAccountPage"
+            android:exported="false" />
+        <activity
             android:name=".test"
             android:exported="false" />
         <activity

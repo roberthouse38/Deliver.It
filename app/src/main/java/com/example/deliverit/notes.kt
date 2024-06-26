@@ -5,8 +5,8 @@ package com.example.deliverit
 import Note
 import android.annotation.SuppressLint
 import android.content.Intent
-import androidx.activity.ComponentActivity
 import android.os.Bundle
+import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -37,7 +37,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.deliverit.Library.Companion.EXTRA_USERNAME
 
@@ -219,17 +218,15 @@ class notes : ComponentActivity() {
     fun BottomNavigationBar(username: String) {
         NavigationBar(modifier = Modifier) {
             NavigationBarItem(
-                selected = false,
-                onClick = {
-                    val intent = Intent(this@notes, test::class.java)
-                    startActivity(intent)
-                },
+                selected = true,
+                onClick = { /* Already on Home page */ },
                 icon = {
                     Icon(
-                        painter = painterResource(id = com.example.deliverit.R.drawable.home),
+                        painter = painterResource(id = R.drawable.home),
                         contentDescription = null
                     )
-                }, label = { Text(text = "Home") }
+                },
+                label = { Text(text = "Home") }
             )
 
             NavigationBarItem(
@@ -242,21 +239,43 @@ class notes : ComponentActivity() {
                 },
                 icon = {
                     Icon(
-                        painter = painterResource(id = com.example.deliverit.R.drawable.library),
+                        painter = painterResource(id = R.drawable.library),
                         contentDescription = null
                     )
-                }, label = { Text(text = "Stock") }
+                },
+                label = { Text(text = "Stock") }
             )
 
             NavigationBarItem(
-                selected = true,
-                onClick = { },
+                selected = false,
+                onClick = {
+                    val intent = Intent(this@notes, notes::class.java)
+                    startActivity(intent)
+                },
                 icon = {
                     Icon(
                         painter = painterResource(id = R.drawable.baseline_notes_24),
                         contentDescription = null
                     )
-                }, label = { Text(text = "Notes") }
+                },
+                label = { Text(text = "Notes") }
+            )
+
+            NavigationBarItem(
+                selected = false,
+                onClick = {
+                    val intent = Intent(this@notes, ProfileAccountPage::class.java).apply {
+                        putExtra(ProfileAccountPage.EXTRA_USERNAME, username)
+                    }
+                    startActivity(intent)
+                },
+                icon = {
+                    Icon(
+                        painter = painterResource(id = R.drawable.account_circle),
+                        contentDescription = null
+                    )
+                },
+                label = { Text(text = "Profile") }
             )
         }
     }
